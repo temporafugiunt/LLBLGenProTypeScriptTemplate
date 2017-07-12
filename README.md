@@ -20,3 +20,5 @@ These files should be placed in the LLBLGen Pro installation directory in the di
 Once placed in that directory you will have a new *Selected preset* when excuting *Generate Source-code Generation* (F7) if you select the *Edit Selected Task Specifics* button.
 
 You should select the new *CUSTOM.TypeScript.General* Preset for the *C#* language. This will then select the *CUSTOM.TemplateBindings.TypeScript.NET35* template binding as defined in the *Advanced...* tab.
+
+This will then create in your output directory a #shared# subdirectory where the TypeScript model definitions will be defined.
