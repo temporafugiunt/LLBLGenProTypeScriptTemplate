@@ -1,4 +1,5 @@
-﻿<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
+﻿import { JsonProperty } from "json-typescript-mapper"
+<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
 <[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
 <[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
 <[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
@@ -31,10 +32,10 @@ export class <[CurrentEntityName]> { <[ UserCodeRegion "PrivateMembers" ]>
 	//Construction
 	//------------
 	constructor() {
-<[Foreach EntityField CrLf]>		<[CaseCamel EntityFieldName]> = undefined;<[NextForeach]>
-<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
-<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
-<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
-<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach EntityField CrLf]>		this.<[CaseCamel EntityFieldName]> = undefined;<[NextForeach]>
+<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		this.<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		this.<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		this.<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		this.<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
 	}
 }
