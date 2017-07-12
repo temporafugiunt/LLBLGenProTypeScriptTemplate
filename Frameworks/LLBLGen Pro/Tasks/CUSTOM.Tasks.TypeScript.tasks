@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<taskGroup xmlns="http://sd/llblgen/pro/taskGroupElementDefinitions.xsd" name="CUSTOM.Tasks.TypeScript" isOptional="false" description="General group of tasks which are used to create TypeScript templates.">
+  <supportedPlatforms/>
+  <supportedTemplateGroups>
+    <templateGroup name="Adapter" />
+  </supportedTemplateGroups>
+  <taskGroup name="CUSTOM.Tasks.TypeScriptProjectCreator">
+    <task name="CUSTOM.Tasks.TypeScriptClassesDirectoryCreator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" 
+		   taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.DirectoryCreator" description="Creates the FactoryClasses folder" isOptional="true">
+			<supportedPlatforms/>
+			<supportedTemplateGroups/>
+			<supportedFrameworks>
+				<framework name="LLBLGen Pro Runtime Framework"/>
+			</supportedFrameworks>
+			<dependencies/>
+			<parameters>
+				<parameter name="folderToCreate" defaultValue="[driverShortName]\shared" isOptional="false" description="The folder to create"/>
+				<parameter name="failWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal what to do when the folder already exists. Overrules clearWhenExistent" valueType="boolean"/>
+				<parameter name="clearWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal if an existing folder has to be cleared first. Overruled by failWhenExistent" valueType="boolean"/>
+			</parameters>
+		</task>
+    <task name="CUSTOM.Tasks.TypeScriptClassesGenerator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.CodeEmitter">
+      <parameters>
+        <parameter isOptional="false" name="destinationFolder" defaultValue="[driverShortName]\shared" />
+        <parameter isOptional="false" name="failWhenExistent" defaultValue="false" />
+        <parameter isOptional="false" name="filenameFormat" defaultValue="[elementName].model.ts" />
+        <parameter isOptional="false" name="templateID" defaultValue="CUSTOM_TypeScriptTemplate" />
+        <parameter isOptional="false" name="emitType" defaultValue="allEntities" />
+      </parameters>
+    </task>
+  </taskGroup>
+</taskGroup>

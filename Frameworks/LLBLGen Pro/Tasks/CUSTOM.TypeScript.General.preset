@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preset name="CUSTOM.TypeScript.General" lastModifiedOn="2013-11-02T21:07:26.1371913-05:00" createdBy="" isSealed="false" xmlns="http://sd/llblgen/pro/presetElementDefinitions.xsd">
+  <supportedPlatforms>
+    <platform name=".NET 3.5" />
+    <platform name=".NET 4.0" />
+    <platform name=".NET 4.5" />
+	<platform name=".NET 4.5.1"/>
+	<platform name=".NET 4.5.2"/>
+	<platform name=".NET 4.6"/>
+    <platform name=".NET 4.6.1" />
+	<platform name=".NET 4.6.2" />
+	<platform name=".NET 4.7" />
+  </supportedPlatforms>
+  <supportedTemplateGroups>
+    <templateGroup name="Adapter" />
+  </supportedTemplateGroups>
+  <supportedFrameworks>
+    <framework name="LLBLGen Pro Runtime Framework" />
+  </supportedFrameworks>
+  <taskPresets>
+    <taskGroupPreset name="CUSTOM.Tasks.TypeScript" requiresCleanCache="false">
+      <performRule isEnabled="false" settingName="" operator="0" operand="" />
+      <taskGroupPreset name="CUSTOM.Tasks.TypeScriptProjectCreator" requiresCleanCache="false">
+        <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        <taskPreset name="CUSTOM.Tasks.TypeScriptClassesDirectoryCreator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+        <taskPreset name="CUSTOM.Tasks.TypeScriptClassesGenerator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+      </taskGroupPreset>
+    </taskGroupPreset>
+  </taskPresets>
+</preset>

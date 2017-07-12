@@ -1,0 +1,40 @@
+﻿<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>import { <[RelatedEntityName]> } from "./<[RelatedEntityName]>.model";<[EndIf]><[NextForeach]>
+
+// TypeScript class for the entity '<[CurrentEntityName]>'.
+export class <[CurrentEntityName]> { <[ UserCodeRegion "PrivateMembers" ]>
+	// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
+	// __LLBLGENPRO_USER_CODE_REGION_END
+	<[ EndUserCodeRegion ]>
+<[Foreach EntityField CrLf]>	// The <[CaseCamel EntityFieldName]> property of the Entity <[CurrentEntityName]></summary>
+	<[CaseCamel EntityFieldName]><[If IsNullable]><[If IsValueType]>?<[EndIf]><[EndIf]>: <[If StringValueEquals TypeOfField "System.Int16"]>number<[Else]><[If StringValueEquals TypeOfField "System.Int32"]>number<[Else]><[If StringValueEquals TypeOfField "System.Int64"]>number<[Else]><[If StringValueEquals TypeOfField "System.Decimal"]>number<[Else]><[If StringValueEquals TypeOfField "System.Single"]>number<[Else]><[If StringValueEquals TypeOfField "System.Double"]>number<[Else]><[If StringValueEquals TypeOfField "System.Boolean"]>boolean<[Else]>string<[EndIf]><[EndIf]><[EndIf]><[EndIf]><[EndIf]><[EndIf]><[EndIf]><[EndIf]>;<[NextForeach]>
+	
+	//Relation Fields
+	//----------------------
+<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>	// An Array with the related entities of type '<[RelatedEntityName]>' which are related to this entity via a relation of type '1:n'.
+	@JsonProperty({clazz: <[RelatedEntityName]>})
+	<[CaseCamel MappedFieldNameRelation]>: Array<<[RelatedEntityName]>>;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>	// An Array with the related entities of type '<[RelatedEntityName]>' which are related to this entity via a relation of type 'm:n'.
+	@JsonProperty({clazz: <[RelatedEntityName]>})
+	<[CaseCamel MappedFieldNameRelation]>: Array<<[RelatedEntityName]>>;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>	// Gets / sets related entity of type '<[RelatedEntityName]>' which has to be set using a fetch action earlier. If no related entity
+	// is set for this property, null is returned.
+	@JsonProperty({clazz: <[RelatedEntityName]>})
+	<[CaseCamel MappedFieldNameRelation]>: <[RelatedEntityName]>;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>	// Gets / sets related entity of type '<[RelatedEntityName]>' which has to be set using a fetch action earlier. If no related entity
+	// is set for this property, null is returned.
+	@JsonProperty({clazz: <[RelatedEntityName]>})
+	<[CaseCamel MappedFieldNameRelation]>: <[RelatedEntityName]>;<[EndIf]><[NextForeach]>
+	
+	//Construction
+	//------------
+	constructor() {
+<[Foreach EntityField CrLf]>		<[CaseCamel EntityFieldName]> = undefined;<[NextForeach]>
+<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>		<[CaseCamel MappedFieldNameRelation]> = undefined;<[EndIf]><[NextForeach]>
+	}
+}
