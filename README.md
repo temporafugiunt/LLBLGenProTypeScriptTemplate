@@ -20,4 +20,4 @@ Once placed in that directory you will have a new `Selected preset` when excutin
 
 You should select the new `CUSTOM.TypeScript.General` Preset for the `C#` language. This will then select the `CUSTOM.TemplateBindings.TypeScript.NET35` template binding as defined in the `Advanced...` tab.
 
-This will then create in your output directory a `shared` subdirectory where the TypeScript model definitions (all with the names[EntityName].model.ts) will be defined.
+This will then create in your output directory a `shared` subdirectory where the TypeScript model definitions will be defined (all with the names [EntityName].model.ts).
