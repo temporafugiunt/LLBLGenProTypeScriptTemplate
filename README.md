@@ -1,4 +1,4 @@
-# LLBLGenProTypeScriptTemplate
+ # LLBLGenProTypeScriptTemplate
 A simple template to generate TypeScript definitions for LLBLGen Pro Entity Definitions.
 
 ### Required NPM Installations
