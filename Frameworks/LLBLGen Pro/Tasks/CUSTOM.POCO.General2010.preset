@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<preset name="CUSTOM.POCO.General2010" lastModifiedOn="2013-11-02T21:07:26.1371913-05:00" createdBy="" isSealed="false" xmlns="http://sd/llblgen/pro/presetElementDefinitions.xsd">
+  <supportedPlatforms>
+    <platform name=".NET 3.5" />
+    <platform name=".NET 4.0" />
+    <platform name=".NET 4.5" />
+	<platform name=".NET 4.5.1"/>
+	<platform name=".NET 4.5.2"/>
+	<platform name=".NET 4.6"/>
+    <platform name=".NET 4.6.1" />
+	<platform name=".NET 4.6.2" />
+	<platform name=".NET 4.7" />
+  </supportedPlatforms>
+  <supportedTemplateGroups>
+    <templateGroup name="Adapter" />
+  </supportedTemplateGroups>
+  <supportedFrameworks>
+    <framework name="LLBLGen Pro Runtime Framework" />
+  </supportedFrameworks>
+  <taskPresets>
+    <taskGroupPreset name="CUSTOM.Tasks.POCO" requiresCleanCache="false">
+      <performRule isEnabled="false" settingName="" operator="0" operand="" />
+      <taskGroupPreset name="CUSTOM.Tasks.POCOProjectCreator" requiresCleanCache="false">
+        <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        <taskPreset name="CUSTOM.Tasks.POCOClassesDirectoryCreator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+        <taskPreset name="CUSTOM.Tasks.POCOClassesGenerator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+        <taskPreset name="CUSTOM.Tasks.POCOAssemblyInfoFileDirectoryCreator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+        <taskPreset name="CUSTOM.Tasks.POCOAssemblyInfoFileGenerator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+        </taskPreset>
+        <taskPreset name="CUSTOM.Tasks.POCOVsNetProjectFileCreator">
+          <performRule isEnabled="false" settingName="" operator="0" operand="" />
+          <parameters>
+            <parameter name="templateID" value="SD_VsNet2010AdapterTemplate" />
+          </parameters>
+        </taskPreset>
+      </taskGroupPreset>
+    </taskGroupPreset>
+  </taskPresets>
+</preset>

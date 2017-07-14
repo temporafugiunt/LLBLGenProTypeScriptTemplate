@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace <[RootNamespace]>
+{
+    /// <summary>
+    /// POCO class for the entity '<[CurrentEntityName]>'.
+    /// </summary>
+    public <[If UsePartialClasses]>partial <[EndIf]>class <[CurrentEntityName]>
+    {
+<[Foreach EntityField CrLf]>
+        /// <summary> The <[EntityFieldName]> property of the Entity <[CurrentEntityName]></summary>
+        public virtual <[ If IsNullable]><[ If IsValueType]><[TypeOfField]>?<[Else]><[TypeOfField]><[EndIf]><[Else]><[TypeOfField]><[EndIf]> <[EntityFieldName]> { get; set; }
+<[NextForeach]>
+        #region Relation Fields
+<[Foreach RelatedEntity OneToMany CrLf]><[If Not MappedFieldRelationIsHidden]>
+        /// <summary> Gets the EntityCollection with the related entities of type '<[RelatedEntityName]>Entity' which are related to this entity via a relation of type '1:n'.
+        /// If the EntityCollection hasn't been fetched yet, the collection returned will be empty.</summary>
+        public virtual List<<[RelatedEntityName]>> <[MappedFieldNameRelation]> { get; set; }
+<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToMany CrLf]><[If Not MappedFieldRelationIsHidden]>
+        /// <summary> Gets the EntityCollection with the related entities of type '<[RelatedEntityName]>Entity' which are related to this entity via a relation of type 'm:n'.
+        /// If the EntityCollection hasn't been fetched yet, the collection returned will be empty.</summary>
+        public virtual List<<[RelatedEntityName]>> <[MappedFieldNameRelation]> { get; set; }
+<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity ManyToOne CrLf]><[If Not MappedFieldRelationIsHidden]>
+        /// <summary> Gets / sets related entity of type '<[RelatedEntityName]>Entity' which has to be set using a fetch action earlier. If no related entity
+        /// is set for this property, null is returned. This property is not visible in databound grids.</summary>
+        public virtual <[RelatedEntityName]> <[MappedFieldNameRelation]> { get; set; }
+<[EndIf]><[NextForeach]>
+<[Foreach RelatedEntity OneToOne CrLf]><[If Not MappedFieldRelationIsHidden]>
+        /// <summary> Gets / sets related entity of type '<[RelatedEntityName]>Entity' which has to be set using a fetch action earlier. If no related entity
+        /// is set for this property, null is returned. This property is not visible in databound grids.</summary>
+        public virtual <[RelatedEntityName]> <[MappedFieldNameRelation]> { get; set; }
+<[EndIf]><[NextForeach]>
+        #endregion        
+    }
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<taskGroup xmlns="http://sd/llblgen/pro/taskGroupElementDefinitions.xsd" name="CUSTOM.Tasks.POCO" isOptional="false" description="General group of tasks which are used to create POCO templates.">
+  <supportedPlatforms/>
+  <supportedTemplateGroups>
+    <templateGroup name="Adapter" />
+  </supportedTemplateGroups>
+  <taskGroup name="CUSTOM.Tasks.POCOProjectCreator">
+    <task name="CUSTOM.Tasks.POCOClassesDirectoryCreator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" 
+		   taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.DirectoryCreator" description="Creates the FactoryClasses folder" isOptional="true">
+			<supportedPlatforms/>
+			<supportedTemplateGroups/>
+			<supportedFrameworks>
+				<framework name="LLBLGen Pro Runtime Framework"/>
+			</supportedFrameworks>
+			<dependencies/>
+			<parameters>
+				<parameter name="folderToCreate" defaultValue="[driverShortName]\POCOClasses" isOptional="false" description="The folder to create"/>
+				<parameter name="failWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal what to do when the folder already exists. Overrules clearWhenExistent" valueType="boolean"/>
+				<parameter name="clearWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal if an existing folder has to be cleared first. Overruled by failWhenExistent" valueType="boolean"/>
+			</parameters>
+		</task>
+    <task name="CUSTOM.Tasks.POCOClassesGenerator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.CodeEmitter">
+      <parameters>
+        <parameter isOptional="false" name="destinationFolder" defaultValue="[driverShortName]\POCOClasses" />
+        <parameter isOptional="false" name="failWhenExistent" defaultValue="false" />
+        <parameter isOptional="false" name="filenameFormat" defaultValue="[elementName].[extension]" />
+        <parameter isOptional="false" name="templateID" defaultValue="CUSTOM_POCOTemplate" />
+        <parameter isOptional="false" name="emitType" defaultValue="allEntities" />
+      </parameters>
+    </task>
+    <task name="CUSTOM.Tasks.POCOAssemblyInfoFileDirectoryCreator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" 
+		   taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.DirectoryCreator" description="Creates the FactoryClasses folder" isOptional="true">
+			<supportedPlatforms/>
+			<supportedTemplateGroups/>
+			<supportedFrameworks>
+				<framework name="LLBLGen Pro Runtime Framework"/>
+			</supportedFrameworks>
+			<dependencies/>
+			<parameters>
+				<parameter name="folderToCreate" defaultValue="[driverShortName]\Properties" isOptional="false" description="The folder to create"/>
+				<parameter name="failWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal what to do when the folder already exists. Overrules clearWhenExistent" valueType="boolean"/>
+				<parameter name="clearWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal if an existing folder has to be cleared first. Overruled by failWhenExistent" valueType="boolean"/>
+			</parameters>
+		</task>
+    <task name="CUSTOM.Tasks.POCOAssemblyInfoFileGenerator"
+         assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll" taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.CodeEmitter"
+         description="Generates the assemblyinfo class">
+      <supportedPlatforms/>
+      <supportedTemplateGroups/>
+      <supportedFrameworks>
+        <framework name="LLBLGen Pro Runtime Framework"/>
+      </supportedFrameworks>
+      <dependencies/>
+      <parameters>
+        <parameter name="destinationFolder" defaultValue="[driverShortName]\Properties" isOptional="false" description="The folder to generate the code in"/>
+        <parameter name="filenameFormat" defaultValue="AssemblyInfo.[extension]" isOptional="false" description="The destination file format specification"/>
+        <parameter name="templateID" defaultValue="SD_AssemblyInfoTemplate" isOptional="false" description="The ID of the template to use." valueType="templateID"/>
+        <parameter name="emitType" defaultValue="generic" isOptional="false" description="The type of code generation to perform." valueType="emitType"/>
+        <parameter name="templateBindingDefinitionName" defaultValue="" isOptional="true" description="The name of the TemplateBindings from which to pick the templateID specified. Specifying this parameter will always force the templateID to be picked from the templateBindings with the name specified."/>
+        <parameter name="failWhenExistent" defaultValue="false" isOptional="true" description="Flag to signal what to do when the destination file already exists." valueType="boolean"/>
+      </parameters>
+    </task>
+    <task name="CUSTOM.Tasks.POCOVsNetProjectFileCreator" assemblyFilename="SD.LLBLGen.Pro.TaskPerformers.dll"
+          taskPerformerClass="SD.LLBLGen.Pro.TaskPerformers.ProjectFileCreator" description="Generates the VS.NET project file. Be sure to place this at the end of the taskgroup.">
+      <supportedPlatforms/>
+      <supportedTemplateGroups/>
+      <supportedFrameworks>
+        <framework name="LLBLGen Pro Runtime Framework"/>
+      </supportedFrameworks>
+      <dependencies/>
+      <parameters>
+        <parameter name="destinationFolder" defaultValue="[driverShortName]" isOptional ="false" description="The folder to generate the project file in, relative to the destination root folder."/>
+        <parameter name="filenameFormat" defaultValue="[projectName].[extension]proj" isOptional="false" description="The project filename format specification."/>
+        <parameter name="templateID" defaultValue="SD_VsNetTemplateID" isOptional="false" description="The ID of the template to use for the VS.NET project file" valueType="templateID"/>
+        <parameter name="useRootNameSpaceForProjectName" defaultValue="true" isOptional="false" description="Flag to signal if the rootnamespace specified should be used for the project name. If set to false, the property projectName has to be specified with the value to use for project name." valueType="boolean"/>
+        <parameter name="alterWhenExistent" defaultValue="true" isOptional="true" description="Flag to signal if an existing project file should be altered or should be left alone." valueType="boolean"/>
+        <parameter name="binRootFolder" defaultValue="" isOptional="true" description="The name of the root folder, relative to the destination root folder, where VS.NET should store the output folders like bin\debug."/>
+        <parameter name="clearFileCacheAfterwards" defaultValue="false" isOptional ="true" description="Flag to signal if the filename cache has to be cleared after this task has been run succesfully." valueType="boolean"/>
+        <parameter name="templateBindingDefinitionName" defaultValue="" isOptional="true" description="The name of the TemplateBindings from which to pick the templateID specified. Specifying this parameter will always force the templateID to be picked from the templateBindings with the name specified."/>
+        <parameter name="projectName" defaultValue="" isOptional="true" description="The name to use for the project if useRootNameSpaceForProjectName is set to false."/>
+        <parameter name="buildActionPerExtension" defaultValue=".config;None|;Compile" valueType="string" description="The build actions to specify per file extension" isOptional="false"/>
+      </parameters>
+    </task>
+  </taskGroup>
+</taskGroup>

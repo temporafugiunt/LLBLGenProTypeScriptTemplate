@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<templateBindings name="CUSTOM.TemplateBindings.POCO.NET35" description="POCO Template Bindings" precedenceLevel="10" xmlns="http://sd/llblgen/pro/templateBindingsDefinition.xsd">
+	<supportedPlatforms />
+	<supportedFrameworks />
+	<supportedDrivers />
+	<language name="C#">
+		<templateBinding templateID="CUSTOM_POCOTemplate" filename="SharedTemplates\Net3.5\C#\entityPOCO.template" templateLanguage="TDL" />
+	</language>
+</templateBindings>
