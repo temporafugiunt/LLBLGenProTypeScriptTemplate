@@ -6,7 +6,7 @@ namespace <[RootNamespace]>
     /// <summary>
     /// POCO class for the entity '<[CurrentEntityName]>'.
     /// </summary>
-    public <[If UsePartialClasses]>partial <[EndIf]>class <[CurrentEntityName]>
+    public <[If UsePartialClasses]>partial <[EndIf]>class <[CurrentEntityName]> <[ If IsSubType ]>: <[ SuperTypeName ]><[ EndIf ]>
     {
 <[Foreach EntityField CrLf]>
         /// <summary> The <[EntityFieldName]> property of the Entity <[CurrentEntityName]></summary>
